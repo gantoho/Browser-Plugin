@@ -24,9 +24,9 @@ node_modules
 .vscode
 
 # 发布
-html/vue/*
-!html/vue/dist
+# html/vue/*
+# !html/vue/dist
 
 # 开发
-# dist
-# dist-ssr
+dist
+dist-ssr
