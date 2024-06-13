@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { NCard } from 'naive-ui';
+import { NCard, NPopover } from 'naive-ui';
 
 defineProps<{favVideoListItem: any}>()
 
@@ -18,8 +18,18 @@ const openVideo = (url: string) => {
         <img :src="favVideoListItem.cover" />
       </template>
       <div class="item-content">
-        <div class="title">{{ favVideoListItem.title }}</div>
-        <div class="intro">{{ favVideoListItem.intro }}</div>
+        <n-popover trigger="hover">
+          <template #trigger>
+            <div class="title">{{ favVideoListItem.title }}</div>
+          </template>
+          <span style="display: inline-block; max-width: 400px; font-width: 900;">{{ favVideoListItem.title }}</span>
+        </n-popover>
+        <n-popover trigger="hover">
+          <template #trigger>
+            <div class="intro">{{ favVideoListItem.intro }}</div>
+          </template>
+          <span style="display: inline-block; max-width: 400px;">{{ favVideoListItem.intro }}</span>
+        </n-popover>
       </div>
     </n-card>
   </div>

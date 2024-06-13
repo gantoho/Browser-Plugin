@@ -102,6 +102,14 @@ const addFavVideo = async () => {
     <FavVideoList :favVideoList="favVideoListPagination" />
   </div>
   <n-pagination
+    style="
+      position: sticky;
+      bottom: 10px;
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: saturate(180%) blur(20px);
+      padding: 4px;
+      border-radius: 4px;
+    "
     v-if="favVideoListPagination && favVideoListPagination.length > 0"
     v-model:page="page"
     v-model:page-size="pageSize"
