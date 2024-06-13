@@ -29,4 +29,5 @@ node_modules
 
 # 开发
 dist
+dist/*
 dist-ssr
