@@ -1,19 +1,32 @@
 {
   "manifest_version": 3,
-  "name": "gTool",
-  "version": "1.0",
-  "description": "gTool插件",
+  "name": "BiliFav - 哔哩哔哩收藏夹增强",
+  "version": "0.0.1",
+  "description": "哔哩哔哩收藏夹增强",
   "icons": {
     "128": "./images/logo.png",
     "48": "./images/logo.png",
     "16": "./images/logo.png"
   },
+  "content_scripts": [
+    {
+      "js": ["scripts/popup.js"],
+      "matches": ["https://www.bilibili.com/*"],
+      "css": []
+    },
+    {
+      "js": ["scripts/popup.js"],
+      "matches": ["https://*.bilibili.com/*"],
+      "css": []
+    }
+  ],
   "action": {
-    "default_icon": "./images/logo.png",
-    "default_popup": "./html/index.html"
+    "default_popup": "./html/vue/dist/index.html",
+    "default_icon": "./images/logo.png"
   },
   "homepage_url": "https://www.baidu.com",
   "chrome_url_overrides": {
     "newtab": "./html/vue/dist/index.html"
-  }
+  },
+  "permissions": ["storage"]
 }
