@@ -27,15 +27,26 @@ const showFavVideoList = (children: any) => {
   favVideoList.value = children
 }
 
-const handleShowModal = (favId: number) => {
-  chrome.storage.sync.get('bvid', (result) => {
-    console.log(result.bvid, 'result.bvid')
-    addFavVideoBvid.value = result.bvid
-  })
-  console.log(addFavVideoBvid.value)
-
-  selectFavId.value = favId
-  showModal.value = true
+const handleShowModal = async (favId: number) => {
+  chrome.tabs.query({ active: true, currentWindow: true },  async (tabs) => {
+    const url = tabs[0].url
+    if (url?.indexOf("https://www.bilibili.com/video/") !== -1) {
+      const match = url?.split("https://www.bilibili.com/video/")[1].match(/([A-Za-z0-9]+)/)
+      if (match && match.length > 1) {
+        chrome.storage.sync.set({ 'bvid': match[1] })
+      } else {
+        chrome.storage.sync.set({ 'bvid': null })
+      }
+      chrome.storage.sync.get('bvid', (result) => {
+        addFavVideoBvid.value = result.bvid
+        selectFavId.value = favId
+        addFavVideo()
+      })
+    } else {
+      selectFavId.value = favId
+      showModal.value = true
+    }
+  });
 }
 
 const addFavVideo = async () => {
@@ -61,8 +72,11 @@ const addFavVideo = async () => {
         title: data.title,
         id: data.aid,
       })
+      item['media_count'] += 1
     }
   })
+  localStorage.setItem('favList', JSON.stringify(favList.value))
+  showModal.value = false
 }
 </script>
 
@@ -88,6 +102,7 @@ const addFavVideo = async () => {
     <FavVideoList :favVideoList="favVideoListPagination" />
   </div>
   <n-pagination
+    v-if="favVideoListPagination && favVideoListPagination.length > 0"
     v-model:page="page"
     v-model:page-size="pageSize"
     :page-count="pageCount"
@@ -113,7 +128,6 @@ const addFavVideo = async () => {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 10px;
-    margin-bottom: 20px;
     .fav-list-item {
       position: relative;
       .btn {

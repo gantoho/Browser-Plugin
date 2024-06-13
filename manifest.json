@@ -28,5 +28,5 @@
   "chrome_url_overrides": {
     "newtab": "./html/vue/dist/index.html"
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "tabs"]
 }

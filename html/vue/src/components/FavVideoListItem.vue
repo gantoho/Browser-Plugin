@@ -36,21 +36,20 @@ const openVideo = (url: string) => {
   .item-content {
     padding: 10px;
     .title {
-      font-size: 16px;
       font-weight: 900;
       margin-bottom: 10px;
-      height: 50px;
+      height: 40px;
       overflow: hidden;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
     }
     .intro {
-      height: 67px;
+      height: 40px;
       overflow: hidden;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
     }
   }
   :deep(.n-card__content) {

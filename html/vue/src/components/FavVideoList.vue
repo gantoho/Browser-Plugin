@@ -17,7 +17,7 @@ watch(favVideoList, (newValue) => {
       <FavVideoListItem :favVideoListItem="element" />
     </template>
   </draggable> -->
-  <div class="fav-video-list">
+  <div class="fav-video-list" v-if="favVideoList && favVideoList.length > 0">
     <FavVideoListItem v-for="(item) in favVideoListBackup" :key="item.id" :favVideoListItem="item" />
   </div>
 </template>

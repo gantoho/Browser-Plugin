@@ -16,15 +16,15 @@ chrome.storage.sync.set({ 'upMid': getCookie('DedeUserID') }, () => {
 chrome.storage.sync.get('upMid', result => {
     console.log(result)
 })
-const match = location.pathname.match(/\/video\/([A-Za-z0-9]+)/)
-if (match && match.length > 1) {
-    chrome.storage.sync.set({ 'bvid': match[1] })
-} else {
-    chrome.storage.sync.set({ 'bvid': null })
-}
-chrome.storage.sync.get('bvid', result => {
-    console.log(result, "bvid")
-})
+// const match = location.pathname.match(/\/video\/([A-Za-z0-9]+)/)
+// if (match && match.length > 1) {
+//     chrome.storage.sync.set({ 'bvid': match[1] })
+// } else {
+//     chrome.storage.sync.set({ 'bvid': null })
+// }
+// chrome.storage.sync.get('bvid', result => {
+//     console.log(result, "bvid")
+// })
 
 
 const tabLinks = document.querySelector(".n-tab-links")
