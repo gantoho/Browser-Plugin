@@ -24,7 +24,7 @@
     "default_popup": "./html/vue/dist/index.html",
     "default_icon": "./images/logo.png"
   },
-  "homepage_url": "https://www.baidu.com",
+  "homepage_url": "https://bili-fav.ganto.me",
   "chrome_url_overrides": {
     "newtab": "./html/vue/dist/index.html"
   },
