@@ -13,12 +13,7 @@ const { favList } = toRefs(useFavStore())
 </template>
 
 <style lang='scss' scoped>
-.start {
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
-}
 .main {
-  padding: 0 20px;
+  padding: 10px;
 }
 </style>

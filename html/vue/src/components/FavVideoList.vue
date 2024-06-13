@@ -27,6 +27,7 @@ watch(favVideoList, (newValue) => {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
+  margin: 20px 0;
 }
 @media (max-width: 1000px) {
   .fav-video-list {
