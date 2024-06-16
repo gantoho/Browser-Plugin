@@ -10,14 +10,9 @@
   },
   "content_scripts": [
     {
-      "js": ["scripts/popup.js"],
-      "matches": ["https://www.bilibili.com/*"],
-      "css": []
-    },
-    {
-      "js": ["scripts/popup.js"],
-      "matches": ["https://*.bilibili.com/*"],
-      "css": []
+      "js": ["scripts/js/common/utils.js", "scripts/js/popup.js"],
+      "matches": ["https://space.bilibili.com/*"],
+      "css": ["css/global.css"]
     }
   ],
   "action": {
