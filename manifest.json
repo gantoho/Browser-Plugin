@@ -3,6 +3,9 @@
   "name": "BiliFav - 哔哩哔哩收藏夹增强",
   "version": "0.0.1",
   "description": "哔哩哔哩收藏夹增强",
+  "background": {
+    "service_worker": "./scripts/js/background.js"
+  },
   "icons": {
     "128": "./images/logo.png",
     "48": "./images/logo.png",
@@ -23,5 +26,28 @@
   "chrome_url_overrides": {
     "newtab": "./html/vue/dist/index.html"
   },
-  "permissions": ["storage", "tabs"]
+  "permissions": ["storage", "tabs"],
+  "commands": {
+    "ctrl-shift-up": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Up",
+        "mac": "Ctrl+Shift+Up"
+      },
+      "description": "测试快捷键"
+    },
+    "ctrl-shift-down": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Down",
+        "mac": "Ctrl+Shift+Down"
+      },
+      "description": "测试快捷键"
+    },
+    "ctrl-shift-right": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Right",
+        "mac": "Ctrl+Shift+Right"
+      },
+      "description": "测试快捷键"
+    }
+  }
 }
